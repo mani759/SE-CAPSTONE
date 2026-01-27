@@ -1,0 +1,145 @@
+/* body {margin:0;font-family:Poppins, sans-serif;background:linear-gradient(135deg,#1f1c2c,#928dab);color:white;}
+.sidebar{position:fixed;width:220px;height:100%;background:#111;padding:20px;}
+.sidebar a{display:block;color:white;padding:10px;margin:10px 0;text-decoration:none;transition:.3s;}
+.sidebar a:hover{background:#444;border-radius:8px;}
+.main{margin-left:240px;padding:30px;}
+.cards{display:flex;gap:20px;}
+.card{padding:30px;border-radius:15px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);text-align:center;transition:.4s;}
+.glow:hover{box-shadow:0 0 20px #00f7ff;}
+.form-box, .form-inline{background:rgba(255,255,255,0.1);padding:20px;border-radius:10px;margin-bottom:20px;}
+input, textarea, select{width:100%;margin:10px 0;padding:10px;border:none;border-radius:6px;}
+button{padding:10px 20px;background:#00f7ff;border:none;border-radius:8px;cursor:pointer;}
+button:hover{transform:scale(1.05);}
+table{width:100%;border-collapse:collapse;background:white;color:black;border-radius:10px;overflow:hidden;}
+th,td{padding:10px;text-align:center;}
+.hover-row:hover{background:#dfe6e9;}
+.fade-in{animation:fadeIn 1s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1a1a2e);
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
+    color:white;
+    overflow-x:hidden;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Floating blobs */
+body::before, body::after{
+    content:"";
+    position:fixed;
+    width:400px;height:400px;
+    border-radius:50%;
+    background:radial-gradient(circle,#00f7ff55,transparent);
+    animation:float 10s infinite alternate;
+}
+body::after{right:10%;top:20%;animation-delay:3s;}
+body::before{left:10%;bottom:10%;}
+
+@keyframes float{
+    from{transform:translateY(0)}
+    to{transform:translateY(-40px)}
+}
+
+/* Sidebar */
+.sidebar{
+    position:fixed;
+    width:230px;height:100%;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(12px);
+    padding:25px;
+    box-shadow:0 0 25px #00f7ff33;
+}
+.sidebar h2{margin-bottom:20px;color:#00f7ff}
+.sidebar a{
+    display:block;
+    padding:12px;
+    margin:12px 0;
+    border-radius:8px;
+    text-decoration:none;
+    color:white;
+    transition:.4s;
+}
+.sidebar a:hover{
+    background:#00f7ff22;
+    box-shadow:0 0 10px #00f7ff;
+    transform:translateX(6px);
+}
+
+/* Main */
+.main{margin-left:250px;padding:40px;animation:fadeIn 1s ease}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* Cards */
+.cards{display:flex;gap:30px;flex-wrap:wrap}
+.card{
+    flex:1;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    text-align:center;
+    transition:.4s;
+    box-shadow:0 0 25px #00000044;
+}
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 25px #00f7ff;
+}
+
+/* Forms */
+.form-box{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 20px #00000044;
+    animation:slideUp .8s ease;
+}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+
+input,textarea,select{
+    width:100%;
+    margin:12px 0;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#ffffff11;
+    color:white;
+}
+button{
+    padding:12px 20px;
+    background:#00f7ff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+button:hover{transform:scale(1.08);box-shadow:0 0 15px #00f7ff}
+
+/* Tables */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    background:white;
+    color:black;
+    border-radius:12px;
+    overflow:hidden;
+    animation:fadeIn 1s ease;
+}
+th{background:#00f7ff;color:black}
+th,td{padding:12px;text-align:center}
+tr:hover{background:#dfe6e9}

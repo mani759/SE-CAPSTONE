@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Change Requests</h2>
+<form method="POST" class="form-box">
+<select name="req_id">{% for r in reqs %}<option value="{{r.id}}">{{r.title}}</option>{% endfor %}</select>
+<textarea name="change_desc" placeholder="Change Description"></textarea>
+<input name="impact" placeholder="Impact">
+<button>Submit</button>
+</form>
+<table>
+<tr><th>Req</th><th>Description</th><th>Impact</th><th>Status</th></tr>
+{% for c in changes %}
+<tr><td>{{c.req_id}}</td><td>{{c.change_desc}}</td><td>{{c.impact}}</td><td>{{c.status}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

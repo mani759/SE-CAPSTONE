@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Requirements</h2>
+<table>
+<tr><th>ID</th><th>Title</th><th>Type</th><th>Priority</th><th>Status</th></tr>
+{% for r in reqs %}
+<tr class="hover-row">
+<td>{{r.id}}</td><td>{{r.title}}</td><td>{{r.type}}</td><td>{{r.priority}}</td><td>{{r.status}}</td>
+<td>
+    {{r.status}}
+    <a href="/update_status/{{r.id}}">
+        <button>Next Stage</button>
+    </a>
+</td>
+
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

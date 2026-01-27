@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-box fade-in">
+<h2>Add Requirement</h2>
+<form method="POST">
+<input name="title" placeholder="Title" required>
+<textarea name="description" placeholder="Description"></textarea>
+<select name="type"><option>Functional</option><option>Non-Functional</option></select>
+<select name="priority"><option>High</option><option>Medium</option><option>Low</option></select>
+<button>Add</button>
+</form>
+</div>
+{% endblock %}

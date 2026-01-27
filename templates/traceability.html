@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Traceability</h2>
+<form method="POST" class="form-inline">
+<select name="req_id">{% for r in reqs %}<option value="{{r.id}}">{{r.title}}</option>{% endfor %}</select>
+<input name="design" placeholder="Design Ref">
+<input name="code" placeholder="Code Ref">
+<input name="test" placeholder="Test Ref">
+<button>Link</button>
+</form>
+<table>
+<tr><th>Req</th><th>Design</th><th>Code</th><th>Test</th></tr>
+{% for t in traces %}
+<tr><td>{{t.req_id}}</td><td>{{t.design_ref}}</td><td>{{t.code_ref}}</td><td>{{t.test_ref}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
