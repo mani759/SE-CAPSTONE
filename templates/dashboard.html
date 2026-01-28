@@ -1,16 +1,30 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>System Dashboard</h1>
-<div class="cards">
-    <div class="card">
-        <h2>Total Requirements</h2>
-        <h1>{{total}}</h1>
-    </div>
-    <div class="card">
-        <h2>Change Requests</h2>
-        <h1>{{changes}}</h1>
-    </div>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>Dashboard</title>
+</head>
+<body>
+
+<div class="navbar">
+  <div><b>AI Requirement System</b></div>
+  <div>
+    <a href="/requirements">Requirements</a>
+    <a href="/traceability">Traceability</a>
+    <a href="/change">Changes</a>
+  </div>
 </div>
 
+<div class="container">
+  <div class="card">
+    <h2>Project Overview</h2>
+    <p>Total Requirements: <b>{{ total }}</b></p>
+    <p>Total Change Requests: <b>{{ changes }}</b></p>
+  </div>
+</div>
 
-{% endblock %}
+</body>
+</html>
+

@@ -1,19 +1,83 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Requirements</h2>
-<table>
-<tr><th>ID</th><th>Title</th><th>Type</th><th>Priority</th><th>Status</th></tr>
-{% for r in reqs %}
-<tr class="hover-row">
-<td>{{r.id}}</td><td>{{r.title}}</td><td>{{r.type}}</td><td>{{r.priority}}</td><td>{{r.status}}</td>
-<td>
-    {{r.status}}
-    <a href="/update_status/{{r.id}}">
-        <button>Next Stage</button>
-    </a>
-</td>
+<!-- 
 
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>Requirements</title>
+</head>
+<body>
+
+<div class="navbar">
+  <div>Requirements</div>
+  <a href="/">Dashboard</a>
+</div>
+
+<div class="container">
+<div class="card">
+<h2>Requirement List</h2>
+
+<table>
+<tr><th>ID</th><th>Title</th><th>Version</th><th>Status</th><th>Actions</th></tr>
+{% for req in reqs %}
+<tr>
+<td>{{ req.id }}</td>
+<td>{{ req.title }}</td>
+<td>{{ req.version }}</td>
+<td>{{ req.status }}</td>
+<td>
+<a href="/update_status/{{ req.id }}"><button>Status</button></a>
+<a href="/edit/{{ req.id }}"><button>Edit</button></a>
+<a href="/analyze/{{ req.id }}"><button>AI Analyze</button></a>
+<a href="/refine/{{ req.id }}"><button>Refine</button></a>
+</td>
 </tr>
 {% endfor %}
 </table>
-{% endblock %}
+</div>
+</div>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>Requirements</title>
+</head>
+<body>
+
+<div class="navbar">
+  <div>Requirements</div>
+  <a href="/">Dashboard</a>
+</div>
+
+<div class="container">
+<div class="card">
+<h2>Requirement List</h2>
+
+<table>
+<tr><th>ID</th><th>Title</th><th>Version</th><th>Status</th><th>Actions</th></tr>
+{% for req in reqs %}
+<tr>
+<td>{{ req.id }}</td>
+<td>{{ req.title }}</td>
+<td>{{ req.version }}</td>
+<td>{{ req.status }}</td>
+<td class="actions">
+<a href="/update_status/{{ req.id }}"><button>Status</button></a>
+<a href="/edit/{{ req.id }}"><button>Edit</button></a>
+<a href="/analyze/{{ req.id }}"><button>AI Analyze</button></a>
+<a href="/refine/{{ req.id }}"><button>Refine</button></a>
+</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>AI Result</title>
+</head>
+<body>
+
+<div class="navbar">
+  <div>AI Analysis Result</div>
+  <a href="/requirements">Back</a>
+</div>
+
+<div class="container">
+<div class="card">
+    <h2>AI Analysis Result</h2>
+    <pre>{{ result }}</pre>
+</div>
+
+</div>
+
+</body>
+</html>

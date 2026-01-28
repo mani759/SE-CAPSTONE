@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>Edit Requirement</title>
+</head>
+<body>
+
+<div class="navbar">
+  <div>Edit Requirement</div>
+  <a href="/requirements">Back</a>
+</div>
+
+<div class="container">
+<div class="card">
+<h2>Update Requirement</h2>
+
+<form method="POST">
+<input name="title" value="{{ req.title }}" required>
+<textarea name="description">{{ req.description }}</textarea>
+<button type="submit">Update Requirement</button>
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

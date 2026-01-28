@@ -1,17 +1,53 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Traceability</h2>
-<form method="POST" class="form-inline">
-<select name="req_id">{% for r in reqs %}<option value="{{r.id}}">{{r.title}}</option>{% endfor %}</select>
-<input name="design" placeholder="Design Ref">
-<input name="code" placeholder="Code Ref">
-<input name="test" placeholder="Test Ref">
-<button>Link</button>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>Traceability</title>
+</head>
+<body>
+
+<div class="navbar">
+  <div>Traceability Matrix</div>
+  <a href="/">Dashboard</a>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Link Requirement</h2>
+<form method="POST">
+<select name="req_id">
+{% for r in reqs %}
+<option value="{{ r.id }}">{{ r.title }}</option>
+{% endfor %}
+</select>
+
+<input name="design" placeholder="Design Reference">
+<input name="code" placeholder="Code File Reference">
+<input name="test" placeholder="Test Case Reference">
+
+<button type="submit">Create Link</button>
 </form>
+</div>
+
+<div class="card">
+<h2>Traceability Records</h2>
 <table>
 <tr><th>Req</th><th>Design</th><th>Code</th><th>Test</th></tr>
 {% for t in traces %}
-<tr><td>{{t.req_id}}</td><td>{{t.design_ref}}</td><td>{{t.code_ref}}</td><td>{{t.test_ref}}</td></tr>
+<tr>
+<td>{{ t.req_id }}</td>
+<td>{{ t.design_ref }}</td>
+<td>{{ t.code_ref }}</td>
+<td>{{ t.test_ref }}</td>
+</tr>
 {% endfor %}
 </table>
-{% endblock %}
+</div>
+
+</div>
+</body>
+</html>

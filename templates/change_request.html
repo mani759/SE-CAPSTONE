@@ -1,16 +1,51 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Change Requests</h2>
-<form method="POST" class="form-box">
-<select name="req_id">{% for r in reqs %}<option value="{{r.id}}">{{r.title}}</option>{% endfor %}</select>
-<textarea name="change_desc" placeholder="Change Description"></textarea>
-<input name="impact" placeholder="Impact">
-<button>Submit</button>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<title>Change Requests</title>
+</head>
+<body>
+
+<div class="navbar">
+  <div>Change Management</div>
+  <a href="/">Dashboard</a>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Submit Change Request</h2>
+<form method="POST">
+<select name="req_id">
+{% for r in reqs %}
+<option value="{{ r.id }}">{{ r.title }}</option>
+{% endfor %}
+</select>
+
+<textarea name="change_desc" placeholder="Describe the change needed"></textarea>
+
+<button type="submit">Submit Change</button>
 </form>
+</div>
+
+<div class="card">
+<h2>Change Requests</h2>
 <table>
-<tr><th>Req</th><th>Description</th><th>Impact</th><th>Status</th></tr>
+<tr><th>Req</th><th>Description</th><th>AI Impact</th><th>Status</th></tr>
 {% for c in changes %}
-<tr><td>{{c.req_id}}</td><td>{{c.change_desc}}</td><td>{{c.impact}}</td><td>{{c.status}}</td></tr>
+<tr>
+<td>{{ c.req_id }}</td>
+<td>{{ c.change_desc }}</td>
+<td><pre>{{ c.impact }}</pre></td>
+<td>{{ c.status }}</td>
+</tr>
 {% endfor %}
 </table>
-{% endblock %}
+</div>
+
+</div>
+</body>
+</html>
+
